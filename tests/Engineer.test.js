@@ -1,6 +1,6 @@
 const engineer = require("../lib/Engineer");
 
-
+// provies input for our tests
 const michle = new engineer('michle','196','michles@email.com','mrGitHUb')
 
 describe('test to see if name brakes employee', ()=>{

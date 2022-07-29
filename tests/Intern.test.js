@@ -1,6 +1,6 @@
 const intern = require("../lib/intern");
 
-
+// provies input for our tests
 const michle = new intern('michle','196','michles@email.com','brown')
 
 describe('test to see if name brakes employee', ()=>{

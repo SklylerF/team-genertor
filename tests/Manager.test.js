@@ -1,6 +1,6 @@
 const manager = require("../lib/manager");
 
-
+// provies input for our tests
 const michle = new manager('michle','196','michles@email.com','215')
 
 describe('test to see if name brakes employee', ()=>{

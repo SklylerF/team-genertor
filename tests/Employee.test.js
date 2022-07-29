@@ -1,6 +1,6 @@
 const employee = require('../lib/employee')
 
-
+// provies input for our tests
 const michle = new employee('michle','196','michles@email.com')
 
 describe('test to see if name brakes employee', ()=>{
