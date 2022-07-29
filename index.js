@@ -28,7 +28,7 @@ const managerQuestions = [
     message: 'what is the managers office number?',
     name: 'managerOfficeNumber'
   },
- 
+
 ];
 
 // intern questions
@@ -81,14 +81,45 @@ const engineerQuestions = [
     message: "what is the engineer's GitHub?",
     name: 'engineerGitHub'
   }]
-  const menue = [{
-    type: "list",
-    message: "Add team members or finish building your team.",
-    name: 'menue',
-    choices: ["add an engineer", "add an intern", "or finish"],
-  },]
- 
+const menue = [{
+  type: "list",
+  message: "Add team members or finish building your team.",
+  name: 'menue',
+  choices: ["add an engineer", "add an intern", "or finish"],
+},]
+
 async function init() {
   let response = await inquirer.prompt(managerQuestions)
+  // const newManager = new manager(Name, ID, email, officeNumber)
+
+  function writeToFile(html) {
+    return new Promise((resolve, reject) => {
+      //Generates html into the 'src' folder
+      fs.writeFile("./src/index.html", html, err => {
+        if (err) {
+          console.log("Error writing to file");
+          reject(err);
+          return;
+        }
+        resolve()
+          .then(data => {
+            return generateMarkdown(data)
+          })
+          //   creates index
+          .then(index => {
+            writeToFile(index);
+            console.log("index successfully generated!");
+          })
+          //   errors 
+          .catch(err => {
+            console.log(err)
+          })
+      })
+    })
+  };
+
+
+  //   generates the mark down 
+
 }
 init()
